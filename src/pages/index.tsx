@@ -9,6 +9,7 @@ export default function Home() {
         <Image src="/reysol.png" alt="Reysol Logo" width={180} height={180} />
         <Link href="/posts/first-post">First Post</Link>
         <Link href="/posts">View Blog</Link>
+        <Link href="/posts/lottery">Play Lottery</Link>
       </div>
     </>
   );

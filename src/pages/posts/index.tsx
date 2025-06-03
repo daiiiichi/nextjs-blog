@@ -1,5 +1,7 @@
 import { GetStaticProps, NextPage } from "next";
 import Link from "next/link";
+import { useAtom } from "jotai";
+import { sortOrderAtom, SortOrder } from "../../atoms";
 
 type Post = {
   id: number;
@@ -24,9 +26,42 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
 };
 
 const Home: NextPage<HomeProps> = ({ allPostsData }) => {
+  const [sortOrder, setSortOrder] = useAtom(sortOrderAtom);
+  // 日付で並べ替えたデータ
+  const sortedPosts = allPostsData?.sort(
+    (a, b) => Date.parse(a.date) - Date.parse(b.date)
+  );
+  // 指定順で並べ替えたデータ
+  const posts =
+    sortOrder === SortOrder.Ascending ? sortedPosts : sortedPosts.toReversed();
+
   return (
     <>
-      {allPostsData?.map(({ id, title, date }) => (
+      <div>
+        <span>
+          <input
+            type="radio"
+            id="descending"
+            name="descending"
+            value="descending"
+            checked={sortOrder === SortOrder.Descending}
+            onChange={(_) => setSortOrder(SortOrder.Descending)}
+          />
+          <label htmlFor="descending">Newer</label>
+        </span>
+        <span>
+          <input
+            type="radio"
+            id="ascending"
+            name="ascending"
+            value="ascending"
+            checked={sortOrder === SortOrder.Ascending}
+            onChange={(_) => setSortOrder(SortOrder.Ascending)}
+          />
+          <label htmlFor="ascending">Older</label>
+        </span>
+      </div>
+      {posts.map(({ id, title, date }) => (
         <div key={id}>
           <p>
             date: {date}, title: {title}

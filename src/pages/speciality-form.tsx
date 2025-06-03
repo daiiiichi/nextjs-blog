@@ -17,7 +17,7 @@ const schema = z.object({
 });
 type Schema = z.infer<typeof schema>;
 
-const SpecialtyForm: NextPage<{}> = () => {
+const SpecialtyForm: NextPage = () => {
   const {
     register,
     handleSubmit,

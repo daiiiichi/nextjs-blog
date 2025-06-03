@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import styles from "@/styles/Home.module.css";
+import { Counter } from "@/components/counter";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
         <Link href="/posts/first-post">First Post</Link>
         <Link href="/posts">View Blog</Link>
         <Link href="/posts/lottery">Play Lottery</Link>
+        <Counter />
       </div>
     </>
   );

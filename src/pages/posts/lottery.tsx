@@ -6,7 +6,7 @@ import useSWR from "swr";
 const fetcher = (url: string): Promise<LotteryResult> =>
   fetch(url).then((response) => response.json());
 
-const Lottery: NextPage<{}> = () => {
+const Lottery: NextPage = () => {
   const { data: lottery } = useSWR("/api/lottery", fetcher);
   return (
     <>
@@ -15,4 +15,5 @@ const Lottery: NextPage<{}> = () => {
     </>
   );
 };
+
 export default Lottery;

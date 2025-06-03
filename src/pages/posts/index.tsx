@@ -45,7 +45,7 @@ const Home: NextPage<HomeProps> = ({ allPostsData }) => {
             name="descending"
             value="descending"
             checked={sortOrder === SortOrder.Descending}
-            onChange={(_) => setSortOrder(SortOrder.Descending)}
+            onChange={() => setSortOrder(SortOrder.Descending)}
           />
           <label htmlFor="descending">Newer</label>
         </span>
@@ -56,7 +56,7 @@ const Home: NextPage<HomeProps> = ({ allPostsData }) => {
             name="ascending"
             value="ascending"
             checked={sortOrder === SortOrder.Ascending}
-            onChange={(_) => setSortOrder(SortOrder.Ascending)}
+            onChange={() => setSortOrder(SortOrder.Ascending)}
           />
           <label htmlFor="ascending">Older</label>
         </span>

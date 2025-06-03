@@ -10,6 +10,7 @@ export default function Home() {
         <Link href="/posts/first-post">First Post</Link>
         <Link href="/posts">View Blog</Link>
         <Link href="/posts/lottery">Play Lottery</Link>
+        <Link href="/speciality-form">Specialty Form</Link>
       </div>
     </>
   );

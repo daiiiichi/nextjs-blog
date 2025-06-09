@@ -5,7 +5,7 @@ export enum SortOrder {
   Descending, // 降順
 }
 
-const storage = createJSONStorage(() => localStorage);
+const storage = createJSONStorage(() => sessionStorage);
 
 export const sortOrderAtom = atomWithStorage(
   "sortOrder",
